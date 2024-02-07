@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 using TMPro;
 
@@ -16,57 +17,52 @@ public class CharacterStats
 public class CharacterSelection : MonoBehaviour
 {
     [Header("Character Selection")]
-    public Transform characterParent;
+   
+    public GameObject[] characters;
+    public int selectedCharacter = 0; 
     public TMP_Text selectedCharacterText;
-    private GameObject[] characters;
-    private int currentIndex = 0;
 
     [Header("Stats")]
     public CharacterStats[] characterStats;
 
-    private void Start()
-    {
-        characters = new GameObject[characterParent.childCount];
-        for (int i = 0; i < characterParent.childCount; i++)
-        {
-            characters[i] = characterParent.GetChild(i).gameObject;
-        }
-
-        UpdateSelectedCharacterText();
-        ToggleCharacterVisibility();
-    }
+    
 
     public void NextCharacter()
     {
-        currentIndex = (currentIndex + 1) % characters.Length;
+        characters[selectedCharacter].SetActive(false);
+        selectedCharacter = (selectedCharacter + 1) % characters.Length;
+        characters[selectedCharacter].SetActive(true);
         UpdateSelectedCharacterText();
-        ToggleCharacterVisibility();
     }
 
     public void PreviousCharacter()
     {
-        currentIndex = (currentIndex + characters.Length - 1) % characters.Length;
+        characters[selectedCharacter].SetActive(false);
+        selectedCharacter--;
+        if (selectedCharacter < 0)
+        {
+            selectedCharacter += characters.Length;
+        }
+        characters[selectedCharacter].SetActive(true);
         UpdateSelectedCharacterText();
-        ToggleCharacterVisibility();
     }
 
-    private void UpdateSelectedCharacterText()
+    public void UpdateSelectedCharacterText()
     {
-        CharacterStats stats = characterStats[currentIndex];
+        CharacterStats stats = characterStats[selectedCharacter];
         selectedCharacterText.text = stats.name + "\n\n" +
                                       "Health: " + stats.health + "\n" +
                                       "Mana: " + stats.mana + "\n" +
                                       "Defense: " + stats.defense + "\n" +
                                        "Speed:" + stats.speed;
     }
+    
+    
 
-    private void ToggleCharacterVisibility()
+    public void StartGame()
     {
-        foreach (GameObject character in characters)
-        {
-            character.SetActive(false);
-        }
-
-        characters[currentIndex].SetActive(true);
+        PlayerPrefs.SetInt("selectedCharacter", selectedCharacter);
+        SceneManager.LoadScene(2, LoadSceneMode.Single);
     }
+
 }
