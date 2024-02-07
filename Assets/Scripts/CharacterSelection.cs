@@ -8,8 +8,9 @@ public class CharacterStats
 {
     public string name;
     public int health;
-    public int attack;
+    public int speed;
     public int defense;
+    public int mana;
 }
 
 public class CharacterSelection : MonoBehaviour
@@ -54,8 +55,9 @@ public class CharacterSelection : MonoBehaviour
         CharacterStats stats = characterStats[currentIndex];
         selectedCharacterText.text = stats.name + "\n\n" +
                                       "Health: " + stats.health + "\n" +
-                                      "Attack: " + stats.attack + "\n" +
-                                      "Defense: " + stats.defense;
+                                      "Mana: " + stats.mana + "\n" +
+                                      "Defense: " + stats.defense + "\n" +
+                                       "Speed:" + stats.speed;
     }
 
     private void ToggleCharacterVisibility()
