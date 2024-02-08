@@ -10,6 +10,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject[] characterPrefabs;
     [SerializeField] Transform spawnPoint;
     [SerializeField] KeyCode mainMenuKey = KeyCode.P;
+    [SerializeField] KeyCode controlsKey = KeyCode.K;
+    [SerializeField] GameObject controlsOverlay;
+    [SerializeField] GameObject controlsInfoText;
+    bool buttonToggle;
 
     void Awake()
     {
@@ -32,6 +36,12 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(mainMenuKey))
             MainMenu_Handler.OnSceneChanged.Invoke("MainMenu");
+        if (Input.GetKeyDown(controlsKey))
+        {
+            buttonToggle = !buttonToggle;
+            controlsOverlay.SetActive(buttonToggle);
+            controlsInfoText.SetActive(!buttonToggle);
+        }
     }
 
     void CharacterStats(int index, GameObject prefab)
@@ -52,6 +62,5 @@ public class GameManager : MonoBehaviour
                 Assassin.Create(prefab, 90, 100, 70, 110);
                 break;
         }
-
     }
 }
