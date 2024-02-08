@@ -29,7 +29,7 @@ public class MainMenu_Handler : MonoBehaviour
 
     public void GoToScene(string sceneName) => SceneManager.LoadScene(sceneName);
 
-    public void Play() => OnSceneChanged("Game");
+    public void Play() => OnSceneChanged("CharacterSelection");
 
     public void Quit() => Application.Quit();
 }

@@ -17,15 +17,22 @@ public class CharacterStats
 public class CharacterSelection : MonoBehaviour
 {
     [Header("Character Selection")]
-   
+
     public GameObject[] characters;
-    public int selectedCharacter = 0; 
+    public int selectedCharacter = 0;
     public TMP_Text selectedCharacterText;
 
     [Header("Stats")]
     public CharacterStats[] characterStats;
 
-    
+    private void Start()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
+        // default text
+        UpdateSelectedCharacterText();
+    }
 
     public void NextCharacter()
     {
@@ -50,19 +57,17 @@ public class CharacterSelection : MonoBehaviour
     public void UpdateSelectedCharacterText()
     {
         CharacterStats stats = characterStats[selectedCharacter];
-        selectedCharacterText.text = stats.name + "\n\n" +
+        selectedCharacterText.SetText(stats.name + "\n\n" +
                                       "Health: " + stats.health + "\n" +
                                       "Mana: " + stats.mana + "\n" +
                                       "Defense: " + stats.defense + "\n" +
-                                       "Speed:" + stats.speed;
+                                       "Speed:" + stats.speed);
     }
-    
-    
 
     public void StartGame()
     {
         PlayerPrefs.SetInt("selectedCharacter", selectedCharacter);
-        SceneManager.LoadScene(2, LoadSceneMode.Single);
+        MainMenu_Handler.OnSceneChanged.Invoke("Game");
     }
 
 }
