@@ -25,6 +25,7 @@ public class PlayerCharacterController : MonoBehaviour
 
     [Header("Keybinds")]
     public KeyCode jumpKey = KeyCode.Space;
+    public KeyCode resetPosition = KeyCode.L;
 
     [Header("Ground Check")]
     public float playerHeight;
@@ -38,6 +39,7 @@ public class PlayerCharacterController : MonoBehaviour
 
     Vector3 moveDirection;
     [SerializeField] Animator animator;
+    [SerializeField] Transform spawnPoint;
 
     Rigidbody rb;
 
@@ -77,6 +79,7 @@ public class PlayerCharacterController : MonoBehaviour
             return;
 
         MovePlayer();
+        WorlBounds();
     }
 
     private void MyInput()
@@ -103,6 +106,10 @@ public class PlayerCharacterController : MonoBehaviour
             currentSpeed = sprintSpeed;
         else
             currentSpeed = walkSpeed;
+
+        // reset position
+        if (Input.GetKeyDown(resetPosition))
+            RespawnPlayer();
     }
 
     void Animations()
@@ -142,9 +149,6 @@ public class PlayerCharacterController : MonoBehaviour
             // add gravity to the player
             rb.AddForce(gravityScale * rb.mass * Physics.gravity, ForceMode.Force);
         }
-
-
-
     }
 
     IEnumerator Dash()
@@ -179,5 +183,18 @@ public class PlayerCharacterController : MonoBehaviour
     {
         readyToJump = true;
         canDash = true;
+    }
+
+    void WorlBounds()
+    {
+        if(transform.position.y < -20)
+            RespawnPlayer();
+    }
+
+    void RespawnPlayer()
+    {
+        transform.SetPositionAndRotation(spawnPoint.position, spawnPoint.rotation);
+        rb.angularVelocity = Vector3.zero;
+        rb.velocity = Vector3.zero;
     }
 }

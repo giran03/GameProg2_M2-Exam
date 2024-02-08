@@ -34,6 +34,14 @@ public class CharacterSelection : MonoBehaviour
         UpdateSelectedCharacterText();
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
+            NextCharacter();
+        else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
+            PreviousCharacter();
+    }
+
     public void NextCharacter()
     {
         characters[selectedCharacter].SetActive(false);
@@ -58,10 +66,10 @@ public class CharacterSelection : MonoBehaviour
     {
         CharacterStats stats = characterStats[selectedCharacter];
         selectedCharacterText.SetText(stats.name + "\n\n" +
-                                      "Health: " + stats.health + "\n" +
-                                      "Mana: " + stats.mana + "\n" +
-                                      "Defense: " + stats.defense + "\n" +
-                                       "Speed:" + stats.speed);
+        "Health: " + stats.health + "\n" +
+        "Mana: " + stats.mana + "\n" +
+        "Defense: " + stats.defense + "\n" +
+        "Speed:" + stats.speed);
     }
 
     public void StartGame()
