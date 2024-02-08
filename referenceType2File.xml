@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfTypeDate xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <TypeDate>
+    <guid>8b95a766e67538c4ca33d0a6cfe16b4e</guid>
+    <fileName>Assets/Plugins/UnitySweeper/Editor/AssetCollector.cs</fileName>
+    <timeStamp>2022-12-14T11:37:41+08:00</timeStamp>
+    <typeFullName>
+      <string>UnitySweeper.AssetCollector</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp-Editor-firstpass, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>c0341fa1dac1ecc438dbf4171ccd502c</guid>
+    <fileName>Assets/Plugins/UnitySweeper/Editor/AssetReferenceCollection.cs</fileName>
+    <timeStamp>2022-12-14T11:37:41+08:00</timeStamp>
+    <typeFullName>
+      <string>UnitySweeper.AssetReferenceCollection</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp-Editor-firstpass, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>810bd30cb86e0fa48bf5841da35912b6</guid>
+    <fileName>Assets/Plugins/UnitySweeper/Editor/ClassReferenceCollection.cs</fileName>
+    <timeStamp>2022-12-14T11:37:41+08:00</timeStamp>
+    <typeFullName>
+      <string>UnitySweeper.ClassReferenceCollection</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp-Editor-firstpass, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>f4c9fe0d38bf1ee468cd170a35ab9f10</guid>
+    <fileName>Assets/Plugins/UnitySweeper/Editor/CollectionData.cs</fileName>
+    <timeStamp>2022-12-14T11:37:41+08:00</timeStamp>
+    <typeFullName>
+      <string>UnitySweeper.CollectionData</string>
+      <string>UnitySweeper.TypeDate</string>
+      <string>UnitySweeper.IReferenceCollection</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp-Editor-firstpass, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>ca34baa6847153040bfcba3529a0e776</guid>
+    <fileName>Assets/Plugins/UnitySweeper/Editor/FindUnusedAssetsWindow.cs</fileName>
+    <timeStamp>2022-12-14T11:37:41+08:00</timeStamp>
+    <typeFullName>
+      <string>UnitySweeper.FindUnusedAssetsWindow</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp-Editor-firstpass, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>69cac10f36fd778458254709634439b7</guid>
+    <fileName>Assets/Plugins/UnitySweeper/Editor/ShaderReferenceCollection.cs</fileName>
+    <timeStamp>2022-12-14T11:37:41+08:00</timeStamp>
+    <typeFullName>
+      <string>UnitySweeper.ShaderReferenceCollection</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp-Editor-firstpass, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>d10f2c6243bcbcf40967ad14f0a85b37</guid>
+    <fileName>Assets/Scripts/CharacterSelection.cs</fileName>
+    <timeStamp>2024-02-08T14:00:21.462151+08:00</timeStamp>
+    <typeFullName>
+      <string>CharacterStats</string>
+      <string>CharacterSelection</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>25dce66d2ee6e7a4684b0dcfd3cd78a8</guid>
+    <fileName>Assets/Scripts/GameManager.cs</fileName>
+    <timeStamp>2024-02-08T14:02:32.7321192+08:00</timeStamp>
+    <typeFullName>
+      <string>GameManager</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>c183e3895be77ac4cbccbd1881cb9cc2</guid>
+    <fileName>Assets/Scripts/MainMenu_Handler.cs</fileName>
+    <timeStamp>2024-02-08T13:58:37.2616847+08:00</timeStamp>
+    <typeFullName>
+      <string>MainMenu_Handler</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>9a73affcb846b85469055ccb4b8f21cd</guid>
+    <fileName>Assets/Scripts/PlayerCharacterController.cs</fileName>
+    <timeStamp>2024-02-08T13:36:15.0010416+08:00</timeStamp>
+    <typeFullName>
+      <string>PlayerCharacterController</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>70ab8243e7dc7f7499d0889fcfdca87e</guid>
+    <fileName>Assets/Scripts/Camera/ThirdPersonCameraController.cs</fileName>
+    <timeStamp>2024-02-08T14:02:19.7665803+08:00</timeStamp>
+    <typeFullName>
+      <string>ThirdPersonCameraController</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>5c88400ed121f2a439e5c70878019efa</guid>
+    <fileName>Assets/Scripts/Characters/Assassin.cs</fileName>
+    <timeStamp>2024-02-05T22:02:31.4205422+08:00</timeStamp>
+    <typeFullName>
+      <string>Assassin</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>2f2f7be9d5d2f434cb558cdfa8d424ad</guid>
+    <fileName>Assets/Scripts/Characters/Character.cs</fileName>
+    <timeStamp>2024-02-06T21:37:50.1475992+08:00</timeStamp>
+    <typeFullName>
+      <string>Character</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>8f88492e4a40f3746adaf370ccc94af6</guid>
+    <fileName>Assets/Scripts/Characters/Mage.cs</fileName>
+    <timeStamp>2024-02-05T22:03:49.9500012+08:00</timeStamp>
+    <typeFullName>
+      <string>Mage</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>78d73243213b1044d9860bd1c2897a28</guid>
+    <fileName>Assets/Scripts/Characters/Priest.cs</fileName>
+    <timeStamp>2024-02-05T22:02:47.2077021+08:00</timeStamp>
+    <typeFullName>
+      <string>Priest</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>027d8350b81ad8042b010b0670961499</guid>
+    <fileName>Assets/Scripts/Characters/Warrior.cs</fileName>
+    <timeStamp>2024-02-05T22:02:32.1109628+08:00</timeStamp>
+    <typeFullName>
+      <string>Warrior</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+</ArrayOfTypeDate>
