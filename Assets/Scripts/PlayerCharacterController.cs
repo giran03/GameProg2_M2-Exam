@@ -5,43 +5,40 @@ using UnityEngine;
 public class PlayerCharacterController : MonoBehaviour
 {
     [Header("Movement")]
-    public float walkSpeed;
-    public float sprintSpeed;
-
-    public float groundDrag;
-
-    public float jumpForce;
-    public float jumpCooldown;
-    public float airMultiplier;
+    [SerializeField] float walkSpeed;
+    [SerializeField] float sprintSpeed;
+    [SerializeField] float groundDrag;
+    [SerializeField] float jumpForce;
+    [SerializeField] float jumpCooldown;
+    [SerializeField] float airMultiplier;
     [SerializeField] float gravityScale;
-    bool readyToJump;
-    float currentSpeed;
 
     [Header("Dash")]
     [SerializeField] float dashSpeed;
     [SerializeField] float dashCooldown;
-    bool isDashing;
-    bool canDash;
 
     [Header("Keybinds")]
-    public KeyCode jumpKey = KeyCode.Space;
-    public KeyCode resetPosition = KeyCode.L;
+    [SerializeField] KeyCode jumpKey = KeyCode.Space;
+    [SerializeField] KeyCode resetPosition = KeyCode.L;
 
     [Header("Ground Check")]
-    public float playerHeight;
-    public LayerMask whatIsGround;
-    bool grounded;
+    [SerializeField] float playerHeight;
+    [SerializeField] LayerMask whatIsGround;
 
-    public Transform orientation;
-
-    float horizontalInput;
-    float verticalInput;
-
-    Vector3 moveDirection;
+    [Header("Configs")]
+    [SerializeField] Transform orientation;
     [SerializeField] Animator animator;
     [SerializeField] Transform spawnPoint;
 
     Rigidbody rb;
+    Vector3 moveDirection;
+    bool isDashing;
+    bool canDash;
+    bool readyToJump;
+    float currentSpeed;
+    bool grounded;
+    float horizontalInput;
+    float verticalInput;
 
     private void Start()
     {
@@ -59,8 +56,6 @@ public class PlayerCharacterController : MonoBehaviour
 
         // ground check
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.2f, whatIsGround);
-
-        Debug.Log("Player velocity: " + rb.velocity.magnitude);
 
         MyInput();
         SpeedControl();
@@ -114,6 +109,7 @@ public class PlayerCharacterController : MonoBehaviour
 
     void Animations()
     {
+        // moving and idle animation
         if (moveDirection.magnitude != 0)
             animator.SetFloat("Speed", .6f);
         else if (moveDirection.magnitude > 7 && Input.GetKey(KeyCode.LeftShift))
@@ -121,12 +117,13 @@ public class PlayerCharacterController : MonoBehaviour
         else
             animator.SetFloat("Speed", 0);
 
+        // jump / falling animation
         if (!grounded)
             animator.SetBool("isJumping", true);
         else if (grounded)
             animator.SetBool("isJumping", false);
 
-
+        // punch animation
         if (Input.GetMouseButton(0))
             animator.SetBool("isPunching", true);
         else if (Input.GetMouseButtonUp(0))
@@ -162,9 +159,9 @@ public class PlayerCharacterController : MonoBehaviour
 
     private void SpeedControl()
     {
+        // limiting velocity from exceeding walk / sprint speed;
         Vector3 flatVel = new(rb.velocity.x, 0f, rb.velocity.z);
 
-        // limit velocity if needed
         if (flatVel.magnitude > currentSpeed)
         {
             Vector3 limitedVel = flatVel.normalized * currentSpeed;
@@ -187,7 +184,7 @@ public class PlayerCharacterController : MonoBehaviour
 
     void WorlBounds()
     {
-        if(transform.position.y < -20)
+        if (transform.position.y < -20)
             RespawnPlayer();
     }
 

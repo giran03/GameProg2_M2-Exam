@@ -4,16 +4,33 @@ using UnityEngine;
 
 public class Warrior : Character
 {
-    public Warrior()
+    int health;
+    int mana;
+    int defense;
+    float speed;
+    static (int,int,int,float) charStats;
+
+    protected Warrior(int _health, int _mana, int _defense, float _speed) : base(_health, _mana, _defense, _speed)
     {
-        Initialize();
+        this.health = _health;
+        this.mana = _mana;
+        this.defense = _defense;
+        this.speed = _speed;
     }
-    public override void Initialize()
+
+    public static Warrior Create(GameObject target, int _health, int _mana, int _defense, float _speed)
     {
-        _health = 110;
-        _mana = 100;
-        _defense = 100;
-        _speed = 90;
+        Warrior warrior = target.AddComponent<Warrior>();
+        warrior.health = _health;
+        warrior.mana = _mana;
+        warrior.defense = _defense;
+        warrior.speed = _speed;
+        charStats = (_health,_mana,_defense,_speed);
+        return warrior;
+    }
+    public static (int, int, int, float) GetVal()
+    {
+        return charStats;
     }
 
     protected override void Attack()
@@ -25,7 +42,7 @@ public class Warrior : Character
     {
         Debug.Log("Heal");
     }
-    
+
     protected override void Dash()
     {
         Debug.Log("Dash");

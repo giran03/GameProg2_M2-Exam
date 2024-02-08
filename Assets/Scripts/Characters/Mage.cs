@@ -4,18 +4,40 @@ using UnityEngine;
 
 public class Mage : Character
 {
-    public Mage()
+    int health;
+    int mana;
+    int defense;
+    float speed;
+    static (int,int,int,float) charStats;
+
+    public Mage(int _health, int _mana, int _defense, float _speed) : base(_health, _mana, _defense, _speed)
     {
-        Initialize();
+        this.health = _health;
+        this.mana = _mana;
+        this.defense = _defense;
+        this.speed = _speed;
     }
-    
-    public override void Initialize()
+
+    public static Mage Create(GameObject target, int _health, int _mana, int _defense, float _speed)
     {
-        _health = 100;
-        _mana = 130;
-        _defense = 70;
-        _speed = 105;
+        Mage mage = target.AddComponent<Mage>();
+        mage.health = _health;
+        mage.mana = _mana;
+        mage.defense = _defense;
+        mage.speed = _speed;
+        charStats = (_health,_mana,_defense,_speed);
+        return mage;
     }
+
+    public static (int,int,int,float) GetVal()
+    {
+        return charStats;
+    }
+
+    public int Health { get { return health; } set { health = value; } }
+    public int Mana { get { return mana; } set { mana = value; } }
+    public int Defense { get { return defense; } set { defense = value; } }
+    public float Speed { get { return speed; } set { speed = value; } }
 
     protected override void Attack()
     {
@@ -26,7 +48,7 @@ public class Mage : Character
     {
         Debug.Log("Heal");
     }
-    
+
     protected override void Dash()
     {
         Debug.Log("Dash");

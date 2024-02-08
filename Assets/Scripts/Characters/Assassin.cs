@@ -4,16 +4,33 @@ using UnityEngine;
 
 public class Assassin : Character
 {
-    public Assassin()
+    int health;
+    int mana;
+    int defense;
+    float speed;
+    static (int, int, int, float) charStats;
+
+    protected Assassin(int _health, int _mana, int _defense, float _speed) : base(_health, _mana, _defense, _speed)
     {
-        Initialize();
+        this.health = _health;
+        this.mana = _mana;
+        this.defense = _defense;
+        this.speed = _speed;
     }
-    public override void Initialize()
+
+    public static Assassin Create(GameObject target, int _health, int _mana, int _defense, float _speed)
     {
-        _health = 90;
-        _mana = 100;
-        _defense = 70;
-        _speed = 110;
+        Assassin assassin = target.AddComponent<Assassin>();
+        assassin.health = _health;
+        assassin.mana = _mana;
+        assassin.defense = _defense;
+        assassin.speed = _speed;
+        charStats = (_health, _mana, _defense, _speed);
+        return assassin;
+    }
+    public static (int, int, int, float) GetVal()
+    {
+        return charStats;
     }
 
     protected override void Attack()
